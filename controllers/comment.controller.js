@@ -53,7 +53,7 @@ class CommentController {
                 jwt.verify(token, config.secret, function(err, decoded) {
                     if (err) return res.status(500).send({ auth: false, statusCode:500, message: 'Failed to authenticate token.' });
                     Comment.comment().find({where: {movie_id:parseInt(req.query.movie_id)}, order: 'id DESC'}, function(err, comment){
-                        console.log(comment);
+                        // console.log(comment);
                         if(err){
                             res.status(500).send({status:'failed', statusCode:500, msg:err});                            
                         }else{
