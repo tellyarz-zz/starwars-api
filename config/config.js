@@ -41,7 +41,7 @@ var config = {
         // server details
         server: {
             host: 'ec2-52-72-1-231.compute-1.amazonaws.com',
-            port: 3000
+            port: 80
         }
     },
     production: {
