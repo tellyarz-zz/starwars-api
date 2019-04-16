@@ -32,12 +32,12 @@ class ClientController {
                 if(err){
                     if(err.errno){
                         if(err.errno === 1062){
-                            res.status(500).send({statusCode:500, msg:'client already exist'});
+                            res.status(500).send({status:'failed', statusCode:500, msg:'client already exist'});
                         }else{
-                            res.status(500).send({statusCode:500, msg:err});
+                            res.status(500).send({status:'failed', statusCode:500, msg:err.message});
                         }
                     }else{
-                        res.status(500).send({statusCode:500, msg:err});
+                        res.status(500).send({status:'failed', statusCode:500, msg:err.message});
                     }
                     
                 }else{
@@ -50,7 +50,7 @@ class ClientController {
                 
             })
        }catch(e){
-           console.log(e);
+            res.status(500).send({status:'failed', statusCode:500, msg:e.message});
        }
         
     }

@@ -57,7 +57,7 @@ class CommentController {
                         if(err){
                             res.status(500).send({status:'failed', statusCode:500, msg:err});                            
                         }else{
-                            res.status(500).send({status:'ok', statusCode:200, comments:comment});       
+                            res.status(200).send({status:'ok', statusCode:200, comments:comment});       
                         }            
                     });
                 });

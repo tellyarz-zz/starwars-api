@@ -9,8 +9,7 @@ const RateLimiter = require('../config/rate-limiter');
 const limiter = new RateLimiter(router);
 
 router.get('/', (req, res)=>{
-  console.log('in home');
-  res.status(200).send({status:'ok'});
+  res.status(200).send({status:'ok', description:'Starwars API'});
 });
 
 // client endpoints
@@ -37,7 +36,7 @@ router.get('/movies', limiter.usingRemoteAddress('/movies', 'get'), (req, res) =
 //comment route
 router
   .post('/comment', limiter.usingRemoteAddress('/comment', 'post'), (req, res) => {
-    // fetch movies
+    // save comment
     CommentController.saveComment(req, res);
   })
   .get('/comments', limiter.usingRemoteAddress('/comment', 'get'), (req, res) => {

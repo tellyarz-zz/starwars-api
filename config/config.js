@@ -1,19 +1,19 @@
 var config = {
-    env: 'development',
+    env: 'development', // development|test|production
     secret: 'iu-JHY-in-this-world20d-to-comee(mn',
     swBaseUrl: 'https://swapi.co/api/',
     development: {
         // database details
         redis: {
-            host: '127.0.01',
-            port: 6379,
-            password: null
+            host: 'redis-16572.c61.us-east-1-3.ec2.cloud.redislabs.com',
+            port: 16572,
+            password: 'Z1V9HpxjDNT7TienRAvMRluAhwH84xDn'
         },
         database: {
-            host: 'localhost',
-            dname: 'student_manager',
+            host: 'starwars.cvmakqb42azw.us-east-1.rds.amazonaws.com',
+            dname: 'starwars',
             user: 'jade',
-            password: 'jade',
+            password: 'NkXJtZp9iDpV65a',
             port:3306,
             dialect: 'mysql'
         },
@@ -25,18 +25,18 @@ var config = {
     },
     test: {
         // database details
+        redis: {
+            host: 'redis-16572.c61.us-east-1-3.ec2.cloud.redislabs.com',
+            port: 16572,
+            password: 'Z1V9HpxjDNT7TienRAvMRluAhwH84xDn'
+        },
         database: {
-            host: 'localhost',
-            dname: 'student_manager_test',
+            host: 'starwars.cvmakqb42azw.us-east-1.rds.amazonaws.com',
+            dname: 'starwars_dev',
             user: 'jade',
-            password: 'jade',
+            password: 'NkXJtZp9iDpV65a',
             port:3306,
             dialect: 'mysql'
-        },
-        redis: {
-            host: '127.0.01',
-            port: 6379,
-            password: null
         },
         // server details
         server: {
@@ -46,15 +46,19 @@ var config = {
     },
     production: {
         // database details
-        database: {
-            host: 'mongodb://test:testemployee1@ds035816.mlab.com',
-            port: 35816,
-            db: 'employee'
-        },
+        // database details
         redis: {
-            host: '127.0.01',
-            port: 6379,
-            password: null
+            host: 'redis-16572.c61.us-east-1-3.ec2.cloud.redislabs.com',
+            port: 16572,
+            password: 'Z1V9HpxjDNT7TienRAvMRluAhwH84xDn'
+        },
+        database: {
+            host: 'starwars.cvmakqb42azw.us-east-1.rds.amazonaws.com',
+            dname: 'starwars',
+            user: 'jade',
+            password: 'NkXJtZp9iDpV65a',
+            port:3306,
+            dialect: 'mysql'
         },
         // server details
         server: {
