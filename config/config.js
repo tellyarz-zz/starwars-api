@@ -1,13 +1,13 @@
 var config = {
-    env: 'development', // development|test|production
+    env: 'production', // development|test|production
     secret: 'iu-JHY-in-this-world20d-to-comee(mn',
     swBaseUrl: 'https://swapi.co/api/',
     development: {
         // database details
         redis: {
-            host: 'redis-16572.c61.us-east-1-3.ec2.cloud.redislabs.com',
-            port: 16572,
-            password: 'Z1V9HpxjDNT7TienRAvMRluAhwH84xDn'
+            host: '127.0.0.1',
+            port: 6379,
+            password: null
         },
         database: {
             host: 'starwars.cvmakqb42azw.us-east-1.rds.amazonaws.com',
@@ -26,9 +26,9 @@ var config = {
     test: {
         // database details
         redis: {
-            host: 'redis-16572.c61.us-east-1-3.ec2.cloud.redislabs.com',
-            port: 16572,
-            password: 'Z1V9HpxjDNT7TienRAvMRluAhwH84xDn'
+            host: '127.0.0.1',
+            port: 6379,
+            password: null
         },
         database: {
             host: 'starwars.cvmakqb42azw.us-east-1.rds.amazonaws.com',
@@ -40,7 +40,7 @@ var config = {
         },
         // server details
         server: {
-            host: '127.0.0.1',
+            host: 'ec2-52-72-1-231.compute-1.amazonaws.com',
             port: 3000
         }
     },
@@ -48,9 +48,9 @@ var config = {
         // database details
         // database details
         redis: {
-            host: 'redis-16572.c61.us-east-1-3.ec2.cloud.redislabs.com',
-            port: 16572,
-            password: 'Z1V9HpxjDNT7TienRAvMRluAhwH84xDn'
+            host: '127.0.0.1',
+            port: 6379,
+            password: null
         },
         database: {
             host: 'starwars.cvmakqb42azw.us-east-1.rds.amazonaws.com',
@@ -62,7 +62,7 @@ var config = {
         },
         // server details
         server: {
-            host: '127.0.0.1',
+            host: 'ec2-52-72-1-231.compute-1.amazonaws.com',
             port: 3000
         }
     }
