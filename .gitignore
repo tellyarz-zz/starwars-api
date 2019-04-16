@@ -57,5 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+# remove docker related files
+
 # next.js build output
 .next

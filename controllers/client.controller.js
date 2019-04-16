@@ -32,12 +32,12 @@ class ClientController {
                 if(err){
                     if(err.errno){
                         if(err.errno === 1062){
-                            res.status(500).send({responseCode:500, msg:'client already exist'});
+                            res.status(500).send({statusCode:500, msg:'client already exist'});
                         }else{
-                            res.status(500).send({responseCode:500, msg:err});
+                            res.status(500).send({statusCode:500, msg:err});
                         }
                     }else{
-                        res.status(500).send({responseCode:500, msg:err});
+                        res.status(500).send({statusCode:500, msg:err});
                     }
                     
                 }else{
@@ -45,7 +45,7 @@ class ClientController {
                         {
                             expiresIn: 86400 // expires in 24 hours
                         });
-                        res.status(201).send({status:'ok', token});
+                        res.status(201).send({status:'ok', statusCode:201, token});
                 }
                 
             })

@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const ClientController = require('../controllers/client.controller');
 const MovieController = require('../controllers/movie.controller');
+const CommentController = require('../controllers/comment.controller');
+const CharacterController = require('../controllers/character.controller');
 const RateLimiter = require('../config/rate-limiter');
 
 const limiter = new RateLimiter(router);
@@ -11,6 +13,7 @@ router.get('/', (req, res)=>{
   res.status(200).send({status:'ok'});
 });
 
+// client endpoints
 router
   .get('/clients', limiter.usingRemoteAddress('/clients', 'get'), (req, res) => {
     // all client
@@ -32,5 +35,21 @@ router.get('/movies', limiter.usingRemoteAddress('/movies', 'get'), (req, res) =
 });
 
 //comment route
-router.post('/comment')
+router
+  .post('/comment', limiter.usingRemoteAddress('/comment', 'post'), (req, res) => {
+    // fetch movies
+    CommentController.saveComment(req, res);
+  })
+  .get('/comments', limiter.usingRemoteAddress('/comment', 'get'), (req, res) => {
+    // fetch movies
+    CommentController.getMovieComments(req, res);
+  });
+
+
+// character route
+router.get('/characters', limiter.usingRemoteAddress('/characters', 'get'), (req, res) => {
+  // get movie characters
+  CharacterController.getmovieCharacters(req, res);
+});
+
 module.exports = router;
