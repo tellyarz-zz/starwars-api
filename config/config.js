@@ -1,17 +1,17 @@
 var config = {
-    env: 'production', // development|test|production
+    env: 'development', // development|test|production
     secret: 'iu-JHY-in-this-world20d-to-comee(mn',
     swBaseUrl: 'https://swapi.co/api/',
     development: {
         // database details
         redis: {
-            host: '127.0.0.1',
-            port: 6379,
-            password: null
+            host: 'redis-16572.c61.us-east-1-3.ec2.cloud.redislabs.com', // '127.0.0.1',
+            port: 16572, //6379,
+            password: 'Z1V9HpxjDNT7TienRAvMRluAhwH84xDn'
         },
         database: {
             host: 'starwars.cvmakqb42azw.us-east-1.rds.amazonaws.com',
-            dname: 'starwars',
+            dname: 'starwars_dev2',
             user: 'jade',
             password: 'NkXJtZp9iDpV65a',
             port:3306,

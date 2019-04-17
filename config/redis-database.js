@@ -6,9 +6,11 @@ class RedisDatabase {
     }
 
     connectDB() {
+    
         const client = this.redis.createClient({
             host: config[config.env].redis.host,
-            port: config[config.env].redis.port
+            port: config[config.env].redis.port,
+            password: config[config.env].redis.password
         });
 
         client.on('error', (err) => {

@@ -13,7 +13,7 @@ class RateLimiter {
             path: path,
             method: method,
             lookup: ['connection.remoteAddress'],
-            total: 20,
+            total: 50,
             expire: 100 * 60 * 60,
             onRateLimited: function(req, res, next) { 
                 res.status(429).json('Too many request, Rate limit exceeded');
@@ -45,7 +45,7 @@ class RateLimiter {
                     const validKeyResult = await this.isValidApiKey(request.body.api_Key);
                     if (validKeyResult) {
                         opts.lookup = 'params.apiKey'
-                        opts.total = 20
+                        opts.total = 50
                     } else {
                         opts.lookup = 'connection.remoteAddress'
                         opts.total = 20
@@ -56,7 +56,7 @@ class RateLimiter {
                 }
                 return next()
             },
-            total: 20,
+            total: 50,
             expire: 1000 * 60 * 60, // one hour
             onRateLimited: function (request, response, next) {
                 // return next();
