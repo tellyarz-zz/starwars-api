@@ -7,3 +7,10 @@
 1. Clone repository
 2. Run `npm install`
 3. Run `npm start`
+
+## Test
+1. Change the `env` property to test in `config/config.js`
+2. Run `npm test`
+
+## Dev environment
+`docker pull sundayokpokor/starwars`
