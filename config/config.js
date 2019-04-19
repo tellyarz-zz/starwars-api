@@ -5,15 +5,15 @@ var config = {
     development: {
         // database details
         redis: {
-            host: 'redis-16572.c61.us-east-1-3.ec2.cloud.redislabs.com', // '127.0.0.1',
-            port: 16572, //6379,
-            password: 'Z1V9HpxjDNT7TienRAvMRluAhwH84xDn'
+            host: '127.0.0.1', //'redis-16572.c61.us-east-1-3.ec2.cloud.redislabs.com', 
+            port: 6379, //16572,
+            password: '' //'Z1V9HpxjDNT7TienRAvMRluAhwH84xDn'
         },
         database: {
-            host: 'starwars.cvmakqb42azw.us-east-1.rds.amazonaws.com',
-            dname: 'starwars_dev2',
+            host: 'localhost', //`'starwars.cvmakqb42azw.us-east-1.rds.amazonaws.com',
+            dname: 'student_manager', //'starwars_dev2',
             user: 'jade',
-            password: 'NkXJtZp9iDpV65a',
+            password: 'jade', //'NkXJtZp9iDpV65a',
             port:3306,
             dialect: 'mysql'
         },

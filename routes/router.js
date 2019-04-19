@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const ClientController = require('../controllers/client.controller');
-const MovieController = require('../controllers/movie.controller');
-const CommentController = require('../controllers/comment.controller');
-const CharacterController = require('../controllers/character.controller');
+const clientController = require('../controllers/client.controller');
+const movieController = require('../controllers/movie.controller');
+const commentController = require('../controllers/comment.controller');
+const characterController = require('../controllers/character.controller');
 const RateLimiter = require('../config/rate-limiter');
 
 const limiter = new RateLimiter(router);
@@ -14,41 +14,20 @@ router.get('/', (req, res)=>{
 
 // client endpoints
 router
-  .get('/clients', limiter.usingRemoteAddress('/clients', 'get'), (req, res) => {
-    // all client
-    ClientController.getClients(req, res);
-  })
-  .post('/client', limiter.usingRemoteAddress('/client', 'post'), (req, res) => {
-    // create client
-    ClientController.createClient(req, res);
-  })
-  .post('/token', limiter.checkApiKey('/token', 'post'), (req, res) => {
-    // get token for client
-    ClientController.getToken(req, res);
-  });
+  .get('/clients', clientController.getClients)
+  .post('/client', clientController.createClient)
+  .post('/token', clientController.getToken);
 
 // movie route
-router.get('/movies', limiter.usingRemoteAddress('/movies', 'get'), (req, res) => {
-  // fetch movies
-  MovieController.fetchMovies(req, res);
-});
+router.get('/movies', movieController.fetchMovies);
 
 //comment route
 router
-  .post('/comment', limiter.usingRemoteAddress('/comment', 'post'), (req, res) => {
-    // save comment
-    CommentController.saveComment(req, res);
-  })
-  .get('/comments', limiter.usingRemoteAddress('/comment', 'get'), (req, res) => {
-    // fetch movies
-    CommentController.getMovieComments(req, res);
-  });
+  .post('/comment', commentController.saveComment)
+  .get('/comments', commentController.getMovieComments);
 
 
 // character route
-router.get('/characters', limiter.usingRemoteAddress('/characters', 'get'), (req, res) => {
-  // get movie characters
-  CharacterController.getmovieCharacters(req, res);
-});
+router.get('/characters', characterController.getmovieCharacters);
 
 module.exports = router;
