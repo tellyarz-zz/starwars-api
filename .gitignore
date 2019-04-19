@@ -6,6 +6,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# hide config.js
+config
+
 # Runtime data
 pids
 *.pid
@@ -63,5 +66,4 @@ typings/
 # next.js build output
 .next
 
-# hide config.js
-config/config.js
+
