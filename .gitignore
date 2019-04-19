@@ -7,7 +7,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # hide config.js
-config
+config/
 
 # Runtime data
 pids
