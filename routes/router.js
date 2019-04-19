@@ -4,9 +4,6 @@ const clientController = require('../controllers/client.controller');
 const movieController = require('../controllers/movie.controller');
 const commentController = require('../controllers/comment.controller');
 const characterController = require('../controllers/character.controller');
-const RateLimiter = require('../config/rate-limiter');
-
-const limiter = new RateLimiter(router);
 
 router.get('/', (req, res)=>{
   res.status(200).send({status:'ok', description:'Starwars API'});
