@@ -1,4 +1,3 @@
-const Client = require('../models/client.model');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../server');
@@ -6,8 +5,6 @@ const uuid = require('uuid/v1');
 const should = chai.should();
 
 chai.use(chaiHttp);
-
-let token;
 
 describe('Movies', () => {
     /*afterEach((done) => {
@@ -33,7 +30,6 @@ describe('Movies', () => {
         it('it should retrieve movies', (done) => {
           chai.request(server)
               .get('/movies')
-              .set('x-access-token', token)
               .end((err, res) => {
                     res.should.have.status(200);
                     res.body.movies.should.be.a('array');

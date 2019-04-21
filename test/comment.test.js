@@ -1,4 +1,3 @@
-const Client = require('../models/client.model');
 const Comment = require('../models/comment.model');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
@@ -7,8 +6,6 @@ const uuid = require('uuid/v1');
 const should = chai.should();
 
 chai.use(chaiHttp);
-
-let token;
 
 describe('Comments', () => {
     /*afterEach((done) => {
@@ -36,7 +33,6 @@ describe('Comments', () => {
         it('it should retrieve comments', (done) => {
           chai.request(server)
               .get('/comments?movie_id=1')
-              .set('x-access-token', token)
               .end((err, res) => {
                     res.should.have.status(200);
                     res.body.comments.should.be.a('array');
@@ -50,7 +46,6 @@ describe('Comments', () => {
         it('it should save comment', (done) => {            
           chai.request(server)
               .post('/comment')
-              .set('x-access-token', token)
               .send(comment)
               .end((err, res) => {
                     res.should.have.status(200);
